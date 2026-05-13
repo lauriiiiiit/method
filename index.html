@@ -1431,36 +1431,8 @@ function doDisconnect(){
 }
 
 function _onDisc(){
-
-  clearInterval(_Si);
-  _Bw = _Bn = null;
-
-  let reason = "Scooter disconnected";
-
-  try{
-
-    // If device object is missing entirely
-    if(!_Bd){
-      reason = "Device lost (Bluetooth session ended)";
-    }
-
-    // If it disconnected almost instantly after connect attempt
-    else if(_connectStartTime && (Date.now() - _connectStartTime < 3000)){
-      reason = "Disconnected during connection (range / pairing / firmware response issue)";
-    }
-
-    // Normal case: unexpected drop
-    else if(!_Bd.gatt || !_Bd.gatt.connected){
-      reason = "Connection lost (out of range, powered off, or interference)";
-    }
-
-    // If browser still thinks it's connected (rare edge case)
-    else {
-      reason = "Bluetooth connection dropped unexpectedly";
-    }
-
-  }catch(e){
-    reason = "Disconnect error: " + (e.message || "unknown");
+  toast("DISCONNECTED ONLY", "err");
+}
   }
 
   if(_Jw){
