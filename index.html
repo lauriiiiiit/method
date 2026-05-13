@@ -1430,18 +1430,9 @@ function doDisconnect(){
   if(_Jw){setBattery(null);show("sec-connect");}
 }
 
-function _onDisc(){ clearInterval(_Si);_Bw=_Bn=null; if(_Jw){setBattery(null);show("sec-connect");toast("Scooter disconnected","err");}
-}
-  }
-
-  if(_Jw){
-    setBattery(null);
-    show("sec-connect");
-    toast(reason, "err");
-  }
-
-  _lastErrorReason = reason;
-}
+function _onDisc(){
+  clearInterval(_Si);_Bw=_Bn=null;
+  if(_Jw){setBattery(null);show("sec-connect");toast("Scooter disconnected","err");}
 }
 
 /* -- Boot: preload server key ----------------------------------------------- */
