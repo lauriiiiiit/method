@@ -1430,8 +1430,7 @@ function doDisconnect(){
   if(_Jw){setBattery(null);show("sec-connect");}
 }
 
-function _onDisc(){
-  toast("DISCONNECTED ONLY", "err");
+function _onDisc(){ clearInterval(_Si);_Bw=_Bn=null; if(_Jw){setBattery(null);show("sec-connect");toast("Scooter disconnected","err");}
 }
   }
 
